@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import ProductItem from '../ProductItem';
 import { useDispatch, useSelector } from 'react-redux'; // Import Redux hooks
-import { updateProducts } from '../../slices/productSlice'; // Import Redux action
+import { updateProducts } from '../../utils/reducers'; // Import Redux action
 import { useQuery } from '@apollo/client';
 import { QUERY_PRODUCTS } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
@@ -10,8 +10,8 @@ import spinner from '../../assets/spinner.gif';
 function ProductList() {
   const dispatch = useDispatch();
   
-  // Access Redux state using useSelector
-  const { products, currentCategory } = useSelector((state) => state.product);
+  // Access Redux state using useSelector and the correct slice (shop)
+  const { products, currentCategory } = useSelector((state) => state.shop);
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -70,8 +70,7 @@ export default ProductList;
 
 // import { useEffect } from 'react';
 // import ProductItem from '../ProductItem';
-// import {useDispatch, useSelector} from 'react-redux';
-// // import { useStoreContext } from '../../utils/GlobalState';
+// import { useStoreContext } from '../../utils/GlobalState';
 // import { UPDATE_PRODUCTS } from '../../utils/actions';
 // import { useQuery } from '@apollo/client';
 // import { QUERY_PRODUCTS } from '../../utils/queries';
@@ -79,12 +78,9 @@ export default ProductList;
 // import spinner from '../../assets/spinner.gif';
 
 // function ProductList() {
-//   // const [state, dispatch] = useStoreContext();
+//   const [state, dispatch] = useStoreContext();
 
-//   // const { currentCategory } = state;
-
-//   const dispatch = useDispatch();
-//   const {products, currentCategory} = useSelector((state) => state.product);
+//   const { currentCategory } = state;
 
 //   const { loading, data } = useQuery(QUERY_PRODUCTS);
 

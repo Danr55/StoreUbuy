@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
@@ -27,7 +27,17 @@ function Detail() {
   useEffect(() => {
     // already in global store
     if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
+      const product = products.find((product) => product._id === id);
+
+      const item = {
+        image: product.image,
+        name: product.name,
+        _id: product._id,
+        price: product.price,
+        quantity: product.quantity,
+      };
+      
+      setCurrentProduct(item);
     }
     // retrieved from server
     else if (data) {

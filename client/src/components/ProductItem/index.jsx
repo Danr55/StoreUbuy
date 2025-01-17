@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { pluralize } from "../../utils/helpers";
 import { useDispatch, useSelector } from "react-redux"; // Import Redux hooks
-import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../slices/cartSlice"; // Import Redux actions
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions"; // Import Redux actions
 import { idbPromise } from "../../utils/helpers";
 
 function ProductItem({ image, name, _id, price, quantity }) {
@@ -50,8 +50,6 @@ function ProductItem({ image, name, _id, price, quantity }) {
 }
 
 export default ProductItem;
-
-// import React from "react";
 // import { Link } from "react-router-dom";
 // import { pluralize } from "../../utils/helpers"
 // import { useStoreContext } from "../../utils/GlobalState";

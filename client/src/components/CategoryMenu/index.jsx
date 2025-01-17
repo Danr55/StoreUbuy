@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { useDispatch, useSelector } from 'react-redux'; // Import Redux hooks
-import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../slices/categorySlice'; // Import Redux actions
+import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions'; // Import Redux actions
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
 
@@ -114,6 +114,13 @@ export default CategoryMenu;
 //           {item.name}
 //         </button>
 //       ))}
+//       <button
+//         onClick={() => {
+//           handleClick('');
+//         }}
+//       >
+//         All
+//       </button>
 //     </div>
 //   );
 // }

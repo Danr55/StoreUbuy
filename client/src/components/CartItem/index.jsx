@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'; // Import Redux hooks
-import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../slices/cartSlice'; // Import Redux actions
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions'; // Import Redux actions
 import { idbPromise } from '../../utils/helpers';
 
 const CartItem = ({ item }) => {
@@ -67,7 +67,6 @@ const CartItem = ({ item }) => {
 
 export default CartItem;
 
-// import React from 'react';
 // import { useStoreContext } from "../../utils/GlobalState";
 // import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 // import { idbPromise } from "../../utils/helpers";
